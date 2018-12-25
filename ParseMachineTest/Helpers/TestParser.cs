@@ -8,7 +8,7 @@ namespace ParseMachineTest
         {
             return new ParserProperties()
             {
-                Url = "https://ekodinkoneet.fi/",
+                StoreUrl = "https://ekodinkoneet.fi/",
                 NextPageXpath = "//a[@class='next i-next']",
                 ProductAreaXpath = "//div[@class='category-products']",
                 CategoryXpath = ".//li[contains(@class, 'level') and contains(@class, 'level-top')]",

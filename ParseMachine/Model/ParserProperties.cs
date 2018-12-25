@@ -2,7 +2,7 @@
 {
     public class ParserProperties
     {
-        public string Url { get; set; }
+        public string StoreUrl { get; set; }
         public string CategoryXpath { get; set; }
         public string ProductAreaXpath { get; set; }
         public string ProductItemXpath { get; set; }

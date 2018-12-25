@@ -5,7 +5,7 @@ namespace ParseMachineTest
     public class IntegrationTest
     {
         [Fact]
-        public void TestParserProperties()
+        public void TestRealScenario()
         {
             var parser = new TestParser();
             parser.Parse();

@@ -8,7 +8,7 @@ namespace ParseMachineTest
         public void TestParserProperties()
         {
             var parser = new TestParser();
-            Assert.Equal("https://ekodinkoneet.fi/", parser.Properties.Url);
+            Assert.Equal("https://ekodinkoneet.fi/", parser.Properties.StoreUrl);
             Assert.Equal(".//li[contains(@class, 'level') and contains(@class, 'level-top')]", parser.Properties.CategoryXpath);
             Assert.Equal("//a[@class='next i-next']", parser.Properties.NextPageXpath);
             Assert.Equal("//div[@class='category-products']", parser.Properties.ProductAreaXpath);

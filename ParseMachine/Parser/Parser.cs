@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using ParseMachine.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -24,12 +25,12 @@ namespace ParseMachine
 
         public void Parse()
         {
-            var page = _client.Load(Properties.Url);
+            var page = _client.Load(Properties.StoreUrl);
             Parallel.ForEach(page.DocumentNode.SelectNodes(Properties.CategoryXpath), liElement =>
             {
                 var categoryElement = liElement.SelectSingleNode(".//a");
-                string categoryUrl = categoryElement.Attributes["href"]?.Value.Trim();
-                string categoryName = categoryElement.InnerText?.Trim();
+                string categoryUrl = categoryElement.Attributes["href"]?.Value.RemoveWhiteSpace();
+                string categoryName = categoryElement.InnerText?.RemoveWhiteSpace();
                 ParseProducts(categoryUrl, categoryName);
             });
         }
