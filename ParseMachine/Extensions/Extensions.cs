@@ -4,7 +4,7 @@
     {
         public static string RemoveWhiteSpace(this string value)
         {
-            return value.Replace("\n", "").Trim();
+            return value.Replace("\n", "").Replace("\r", "").Trim();
         }
     }
 }
