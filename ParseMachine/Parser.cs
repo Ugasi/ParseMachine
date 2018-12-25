@@ -67,7 +67,7 @@ namespace ParseMachine
         private string ParseItemAttribute(HtmlNode item, string xpath, string attributeName = null)
         {
             var info = item.SelectSingleNode(xpath);
-            return info?.InnerText ?? (attributeName != null ? info?.Attributes[attributeName].Value : null);
+            return attributeName != null ? info?.Attributes[attributeName].Value : info?.InnerText;
         }
 
         private HtmlDocument NextPageExists(HtmlDocument productPage)
