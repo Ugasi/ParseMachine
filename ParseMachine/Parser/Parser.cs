@@ -1,8 +1,6 @@
-﻿using System;
+﻿using HtmlAgilityPack;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 
 namespace ParseMachine
 {
@@ -11,6 +9,7 @@ namespace ParseMachine
         public readonly ParserProperties Properties;
         private static readonly HtmlWeb _client = new HtmlWeb();
         public List<Product> Products { get; set; } = new List<Product>();
+
         public abstract ParserProperties SetProperties();
 
         protected Parser()
