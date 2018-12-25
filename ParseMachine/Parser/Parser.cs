@@ -8,14 +8,14 @@ namespace ParseMachine
 {
     public abstract class Parser
     {
-        private readonly ParserProperties _properties;
+        public readonly ParserProperties Properties;
         private static readonly HtmlWeb _client = new HtmlWeb();
         public List<Product> Products { get; set; } = new List<Product>();
         public abstract ParserProperties SetProperties();
 
         protected Parser()
         {
-            _properties = SetPropertyValues();
+            Properties = SetPropertyValues();
         }
 
         private ParserProperties SetPropertyValues()
@@ -25,8 +25,8 @@ namespace ParseMachine
 
         public void Parse()
         {
-            var page = _client.Load(_properties.Url);
-            Parallel.ForEach(page.DocumentNode.SelectNodes(_properties.CategoryXpath), liElement =>
+            var page = _client.Load(Properties.Url);
+            Parallel.ForEach(page.DocumentNode.SelectNodes(Properties.CategoryXpath), liElement =>
             {
                 var categoryElement = liElement.SelectSingleNode(".//a");
                 string categoryUrl = categoryElement.Attributes["href"]?.Value.Trim();
@@ -40,26 +40,30 @@ namespace ParseMachine
             var productPage = _client.Load(categoryUrl);
             do
             {
-                var productSection = productPage.DocumentNode.SelectSingleNode(_properties.ProductAreaXpath);
+                var productSection = productPage.DocumentNode.SelectSingleNode(Properties.ProductAreaXpath);
                 if (productSection != null)
                 {
-                    Parallel.ForEach(productSection.SelectNodes(_properties.ProductItemXpath), item =>
+                    var singleItems = productSection.SelectNodes(Properties.ProductItemXpath);
+                    if (singleItems != null)
                     {
-                        string name = ParseItemAttribute(item, _properties.ProductNameXpath, _properties.ProductNameAttribute);
-                        string price = ParseItemAttribute(item, _properties.ProductPriceXpath, _properties.ProductPriceAttribute);
-                        string url = ParseItemAttribute(item, _properties.ProductUrlXpath, _properties.ProductUrlAttribute);
-                        string code = ParseItemAttribute(item, _properties.ProductCodeXpath, _properties.ProductCodeAttribute);
-                        string image = ParseItemAttribute(item, _properties.ProductImageXPath, _properties.ProductImageAttribute);
-                        Products.Add(new Product()
+                        Parallel.ForEach(productSection.SelectNodes(Properties.ProductItemXpath), item =>
                         {
-                            ProductName = name,
-                            ProductCategory = categoryName,
-                            ProductCode = code,
-                            ProductImage = image,
-                            ProductPrice = price,
-                            ProductUrl = url
+                            string name = ParseItemAttribute(item, Properties.ProductNameXpath, Properties.ProductNameAttribute);
+                            string price = ParseItemAttribute(item, Properties.ProductPriceXpath, Properties.ProductPriceAttribute);
+                            string url = ParseItemAttribute(item, Properties.ProductUrlXpath, Properties.ProductUrlAttribute);
+                            string code = ParseItemAttribute(item, Properties.ProductCodeXpath, Properties.ProductCodeAttribute);
+                            string image = ParseItemAttribute(item, Properties.ProductImageXPath, Properties.ProductImageAttribute);
+                            Products.Add(new Product()
+                            {
+                                ProductName = name,
+                                ProductCategory = categoryName,
+                                ProductCode = code,
+                                ProductImage = image,
+                                ProductPrice = price,
+                                ProductUrl = url
+                            });
                         });
-                    });
+                    }
                 }
             } while ((productPage = NextPageExists(productPage)) != null);
         }
@@ -72,7 +76,7 @@ namespace ParseMachine
 
         private HtmlDocument NextPageExists(HtmlDocument productPage)
         {
-            var nextPageExists = productPage.DocumentNode.SelectSingleNode(_properties.NextPageXpath);
+            var nextPageExists = productPage.DocumentNode.SelectSingleNode(Properties.NextPageXpath);
             if (nextPageExists != null)
             {
                 return _client.Load(nextPageExists.Attributes["href"].Value);
