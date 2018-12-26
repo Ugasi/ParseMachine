@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <DocumentationFile>StoreParser.xml</DocumentationFile>
     <PackageId>StoreParser</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Juha Palmu</Authors>
     <Company>Juha Palmu</Company>
     <PackageLicenseUrl>https://github.com/Ugasi/ParseMachine/blob/master/LICENSE</PackageLicenseUrl>
