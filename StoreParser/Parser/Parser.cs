@@ -5,14 +5,32 @@ using System.Threading.Tasks;
 
 namespace StoreParser
 {
+    /// <summary>
+    /// Abstract parser. Contains base implementation to parse whole store
+    /// </summary>
     public abstract class Parser
     {
+        /// <summary>
+        /// Properties of the parser. Containing xpaths to relevant information
+        /// </summary>
         public readonly ParserProperties Properties;
+
         private static readonly HtmlWeb _client = new HtmlWeb();
+
+        /// <summary>
+        /// List of products parsed from store
+        /// </summary>
         public List<Product> Products { get; set; } = new List<Product>();
 
+        /// <summary>
+        /// Override this to return custom properties
+        /// </summary>
+        /// <returns></returns>
         public abstract ParserProperties SetProperties();
 
+        /// <summary>
+        /// Calls SetPropertyValues to set properties
+        /// </summary>
         protected Parser()
         {
             Properties = SetPropertyValues();
@@ -23,6 +41,9 @@ namespace StoreParser
             return SetProperties();
         }
 
+        /// <summary>
+        /// Starts parsing store page with given properties. Output is recorded in Products list
+        /// </summary>
         public void Parse()
         {
             var page = _client.Load(Properties.StoreUrl);
