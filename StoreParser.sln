@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParseMachine", "ParseMachine\ParseMachine.csproj", "{D1F2B80E-789A-4D3F-8ED5-47FB8170CA6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreParser", "StoreParser\StoreParser.csproj", "{D1F2B80E-789A-4D3F-8ED5-47FB8170CA6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseMachineTest", "ParseMachineTest\ParseMachineTest.csproj", "{F0658E79-5EC8-4E23-BAAB-1BC9520258DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreParserTest", "StoreParserTest\StoreParserTest.csproj", "{F0658E79-5EC8-4E23-BAAB-1BC9520258DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

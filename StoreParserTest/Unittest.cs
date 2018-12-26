@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace ParseMachineTest
+namespace StoreParserTest
 {
     public class UnitTest
     {

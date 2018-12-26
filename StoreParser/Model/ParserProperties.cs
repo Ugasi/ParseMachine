@@ -1,4 +1,4 @@
-﻿namespace ParseMachine
+﻿namespace StoreParser
 {
     public class ParserProperties
     {

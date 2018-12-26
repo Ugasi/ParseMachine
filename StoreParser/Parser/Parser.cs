@@ -1,9 +1,9 @@
 ﻿using HtmlAgilityPack;
-using ParseMachine.Extensions;
+using StoreParser.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ParseMachine
+namespace StoreParser
 {
     public abstract class Parser
     {

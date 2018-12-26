@@ -1,4 +1,4 @@
-﻿namespace ParseMachine.Extensions
+﻿namespace StoreParser.Extensions
 {
     internal static class Extensions
     {

@@ -1,6 +1,6 @@
-﻿using ParseMachine;
+﻿using StoreParser;
 
-namespace ParseMachineTest
+namespace StoreParserTest
 {
     internal class TestParser : Parser
     {
