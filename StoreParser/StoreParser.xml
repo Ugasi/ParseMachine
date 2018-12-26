@@ -4,5 +4,151 @@
         <name>StoreParser</name>
     </assembly>
     <members>
+        <member name="T:StoreParser.ParserProperties">
+            <summary>
+            Property class for containing varying information about locations to parse
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.StoreUrl">
+            <summary>
+            URL of the store
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.CategoryXpath">
+            <summary>
+            Xpath to element containing url and title for category
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductAreaXpath">
+            <summary>
+            Xpath to element, usually div, containing product information
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductItemXpath">
+            <summary>
+            Xpath to element of single product
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductNameXpath">
+            <summary>
+            Xpath to product name
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductUrlXpath">
+            <summary>
+            Xpath to product url
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductPriceXpath">
+            <summary>
+            Xpath to product price
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductCodeXpath">
+            <summary>
+            Xpath to product code (EAN or similiar)
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductImageXPath">
+            <summary>
+            Xpath to product image
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductNameAttribute">
+            <summary>
+            Optional name of attribute containing product name
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductUrlAttribute">
+            <summary>
+            Optional name of attribute containing product url
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductPriceAttribute">
+            <summary>
+            Optional name of attribute containing product price
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductCodeAttribute">
+            <summary>
+            Optional name of attribute containing product code
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.ProductImageAttribute">
+            <summary>
+            Optional name of attribute containing product image
+            </summary>
+        </member>
+        <member name="P:StoreParser.ParserProperties.NextPageXpath">
+            <summary>
+            Optional xpath to next page button, if category has that
+            </summary>
+        </member>
+        <member name="T:StoreParser.Product">
+            <summary>
+            Product class to be extracted from given store
+            </summary>
+        </member>
+        <member name="P:StoreParser.Product.ProductName">
+            <summary>
+            String representation of product name
+            </summary>
+        </member>
+        <member name="P:StoreParser.Product.ProductCategory">
+            <summary>
+            String representation of product category
+            </summary>
+        </member>
+        <member name="P:StoreParser.Product.ProductPrice">
+            <summary>
+            String representation of product price
+            </summary>
+        </member>
+        <member name="P:StoreParser.Product.ProductCode">
+            <summary>
+            String representation of product code
+            </summary>
+        </member>
+        <member name="P:StoreParser.Product.ProductUrl">
+            <summary>
+            String representation of product url
+            </summary>
+        </member>
+        <member name="P:StoreParser.Product.ProductImage">
+            <summary>
+            String representation of product image url
+            </summary>
+        </member>
+        <member name="T:StoreParser.Parser">
+            <summary>
+            Abstract parser. Contains base implementation to parse whole store
+            </summary>
+        </member>
+        <member name="F:StoreParser.Parser.Properties">
+            <summary>
+            Properties of the parser. Containing xpaths to relevant information
+            </summary>
+        </member>
+        <member name="P:StoreParser.Parser.Products">
+            <summary>
+            List of products parsed from store
+            </summary>
+        </member>
+        <member name="M:StoreParser.Parser.SetProperties">
+            <summary>
+            Override this to return custom properties
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StoreParser.Parser.#ctor">
+            <summary>
+            Calls SetPropertyValues to set properties
+            </summary>
+        </member>
+        <member name="M:StoreParser.Parser.Parse">
+            <summary>
+            Starts parsing store page with given properties. Output is recorded in Products list
+            </summary>
+        </member>
     </members>
 </doc>

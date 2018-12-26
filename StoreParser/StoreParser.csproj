@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>G:\Projects\StoreParser\StoreParser\StoreParser.xml</DocumentationFile>
+    <DocumentationFile>StoreParser.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
