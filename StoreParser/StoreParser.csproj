@@ -10,6 +10,7 @@
     <PackageLicenseUrl>https://github.com/Ugasi/ParseMachine/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Ugasi/ParseMachine</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Contains abstract class for easily creating parser to get product information from most online stores.</Description>
   </PropertyGroup>
 
   <ItemGroup>
