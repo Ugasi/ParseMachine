@@ -9,6 +9,7 @@
     <Company>Juha Palmu</Company>
     <PackageLicenseUrl>https://github.com/Ugasi/ParseMachine/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Ugasi/ParseMachine</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
